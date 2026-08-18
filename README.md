@@ -1,4 +1,4 @@
-# Evidence
+# EviDense
 
 A minimal Streamlit front end for an Azure AI Foundry clinical agent. Answers are
 rendered as numbered sections with inline citations, and every citation resolves to
