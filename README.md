@@ -5,6 +5,8 @@ rendered as numbered sections with inline citations, and every citation resolves
 the passage it came from: the document, the page, and the verbatim text the model
 was reading, listed once at the end of the page.
 
+![EviDense Demo](evidense-demo.gif)
+
 ## Run it
 
 ```bash
