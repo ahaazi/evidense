@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,16..72,300;0,16..72,400;1,16..72,300&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --paper: #ffffff;
+  --wash: #f6f8f7;
+  --ink: #101614;
+  --ink-2: #495753;
+  --ink-3: #7d8b87;
+  --line: #e3e8e6;
+  --accent: #0f5f55;
+  --accent-wash: #e7f1ef;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: 'Newsreader', Georgia, serif;
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Override Streamlit's own theme variables so a dark system/user theme
+     cannot leave light text sitting on our white background. */
+  --text-color: var(--ink);
+  --default-text-color: var(--ink);
+  --background-color: var(--paper);
+  --secondary-background-color: var(--wash);
+  --border-color: var(--line);
+  --primary-color: var(--accent);
+  color-scheme: light;
+}
+
+/* ---------- Streamlit chrome ---------- */
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+footer { display: none !important; }
+
+[data-testid="stHeader"] { background: transparent; height: 0; }
+
+[data-testid="stAppViewContainer"] { background: var(--paper); }
+
+[data-testid="stAppViewContainer"] .block-container {
+  max-width: 46rem;
+  padding: 2.4rem 1.25rem 8rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Streamlit sets colors per element, so inheritance alone is not enough. */
+[data-testid="stAppViewContainer"],
+[data-testid="stMarkdownContainer"],
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stMarkdownContainer"] strong,
+[data-testid="stMarkdownContainer"] code,
+[data-testid="stBottomBlockContainer"],
+[data-testid="stSpinner"] p {
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+[data-testid="stMarkdownContainer"] code {
+  font-family: var(--mono);
+  font-size: 0.85em;
+  background: var(--wash);
+  padding: 0.05rem 0.28rem;
+  border-radius: 3px;
+}
+
+/* Keep re-running elements legible while still marking them as stale. */
+[data-stale="true"], .stale-element { opacity: 0.55 !important; }
+
+[data-testid="stSpinner"] p {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------- Masthead ---------- */
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 2.75rem;
+}
+
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.34rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+.wordmark em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.masthead .agent {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------- Hero ---------- */
+.hero { padding: 3.5rem 0 1.25rem; }
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.1rem, 5.5vw, 3rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin: 0 0 0.9rem;
+}
+
+.hero h1 em { font-style: italic; }
+
+.hero p {
+  font-size: 1rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  max-width: 30rem;
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 1.5rem;
+}
+
+.prompts-label {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 2.75rem 0 0.6rem;
+}
+
+/* ---------- Question / answer thread ---------- */
+.turn-rule {
+  border-top: 1px solid var(--line);
+  margin: 3.25rem 0 2.75rem;
+}
+
+.question {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 3.6vw, 2rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.022em;
+  color: var(--ink);
+  margin: 0 0 1rem;
+  text-wrap: balance;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+  padding-bottom: 1.6rem;
+  margin-bottom: 1.9rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.meta span::before { content: '·'; margin-right: 0.85rem; color: var(--line); }
+.meta span:first-child::before { content: none; margin: 0; }
+
+.sec-label {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 0.3rem;
+}
+
+.sec-title {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+  margin: 0 0 0.85rem;
+}
+
+.answer p, .answer li {
+  font-size: 0.945rem;
+  line-height: 1.68;
+  color: var(--ink-2);
+}
+
+.answer ul { padding-left: 1.05rem; margin: 0 0 0.35rem; }
+.answer li { margin-bottom: 0.5rem; }
+.answer li::marker { color: var(--ink-3); }
+.answer ul ul { margin-top: 0.5rem; padding-left: 1rem; }
+.answer strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- Citations: the thread between claim and source ---------- */
+.cite {
+  display: inline-block;
+  min-width: 1.05rem;
+  padding: 0 0.22rem;
+  margin-left: 0.14rem;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  line-height: 1.15rem;
+  text-align: center;
+  text-decoration: none !important;
+  color: var(--accent) !important;
+  background: var(--accent-wash);
+  border-radius: 3px;
+  vertical-align: 0.32em;
+  transition: background 120ms ease, color 120ms ease;
+}
+
+a.cite:hover { background: var(--accent); color: #fff !important; }
+a.cite:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.cite.is-unmapped { color: var(--ink-3) !important; background: var(--wash); cursor: help; }
+
+/* The passage itself, on hover: the claim and its evidence in one glance. */
+.cite-wrap { position: relative; display: inline-block; }
+
+.cite-pop {
+  position: absolute;
+  bottom: calc(100% + 0.45rem);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: none;
+  width: max-content;
+  max-width: min(23rem, 78vw);
+  padding: 0.7rem 0.8rem;
+  text-align: left;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  box-shadow: 0 2px 6px rgba(16, 22, 20, 0.06), 0 14px 34px rgba(16, 22, 20, 0.11);
+}
+
+.cite-wrap:hover .cite-pop,
+.cite-wrap:focus-within .cite-pop { display: block; }
+
+.cite-pop-head {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  line-height: 1.45;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-bottom: 0.42rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.cite-pop-body {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--ink-2);
+  vertical-align: baseline;
+}
+
+/* ---------- References ---------- */
+.refs-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding-top: 1.9rem;
+  margin-top: 2.4rem;
+  border-top: 1px solid var(--line);
+  margin-bottom: 1.15rem;
+}
+
+ol.refs { list-style: none; margin: 0; padding: 0; }
+
+li.ref {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.95rem 0.6rem;
+  margin: 0 -0.6rem;
+  border-bottom: 1px solid var(--line);
+  border-radius: 6px;
+  scroll-margin-top: 1.5rem;
+  transition: background 140ms ease;
+}
+
+li.ref:last-child { border-bottom: none; }
+li.ref:hover { background: var(--wash); }
+li.ref:target { background: var(--accent-wash); }
+li.ref:target .ref-num { background: var(--accent); color: #fff; }
+
+.ref-num {
+  flex: 0 0 auto;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.12rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  line-height: 1.35rem;
+  text-align: center;
+  color: var(--accent);
+  background: var(--accent-wash);
+  border-radius: 3px;
+  transition: background 140ms ease, color 140ms ease;
+}
+
+.ref-body { min-width: 0; }
+
+.ref-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--ink);
+  margin: 0;
+}
+
+.ref-detail {
+  font-size: 0.845rem;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0.28rem 0 0;
+}
+
+.ref-meta {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+  margin: 0.3rem 0 0;
+}
+
+/* The retrieved passage, quoted verbatim. */
+.ref-quote {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.885rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-2);
+  border-left: 2px solid var(--accent-wash);
+  padding: 0 0 0 0.7rem;
+  margin: 0.6rem 0 0;
+}
+
+.ref-quote.is-full {
+  font-style: normal;
+  font-family: var(--sans);
+  font-size: 0.83rem;
+  line-height: 1.65;
+  border-left-color: var(--accent);
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.ref-details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.ref-details > summary::-webkit-details-marker { display: none; }
+.ref-details[open] > summary .ref-more::after { content: ' ▴'; }
+.ref-details > summary .ref-more::after { content: ' ▾'; }
+
+.ref-more {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0.5rem 0 0 0.7rem;
+}
+
+.ref-details > summary:hover .ref-more { text-decoration: underline; }
+.ref-details[open] > summary .ref-quote { display: none; }
+
+.ref-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.6rem;
+}
+
+a.ref-link, .ref-file {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  letter-spacing: 0.05em;
+  color: var(--accent) !important;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-wash);
+}
+
+a.ref-link:hover { border-bottom-color: var(--accent); }
+.ref-file { color: var(--ink-3) !important; border: none; }
+
+.ref-note {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-3);
+}
+
+/* Which documents an answer rests on, above the passage list. */
+.doc-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.15rem;
+}
+
+a.doc-chip, span.doc-chip {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ink-2) !important;
+  text-decoration: none;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.22rem 0.62rem;
+  transition: border-color 140ms ease, color 140ms ease;
+}
+
+a.doc-chip:hover { border-color: var(--accent); color: var(--ink) !important; }
+
+.chunk {
+  font-family: var(--mono);
+  font-size: 0.63rem;
+  color: var(--ink-2);
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 0.08rem 0.34rem;
+}
+
+/* ---------- Notices ---------- */
+.notice {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  background: var(--wash);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  padding: 0.75rem 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.notice b { color: var(--ink); font-weight: 600; }
+
+.disclaimer {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--ink-3);
+  padding-top: 1.4rem;
+  margin-top: 2.75rem;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- Inputs & buttons ---------- */
+[data-testid="stBottom"] > div,
+[data-testid="stBottomBlockContainer"] {
+  background: var(--paper);
+}
+
+[data-testid="stBottomBlockContainer"] {
+  max-width: 46rem;
+  padding-bottom: 1.5rem;
+}
+
+[data-testid="stChatInput"] {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  box-shadow: 0 1px 2px rgba(16, 22, 20, 0.04), 0 8px 24px rgba(16, 22, 20, 0.05);
+  transition: border-color 140ms ease;
+}
+
+[data-testid="stChatInput"]:focus-within { border-color: var(--accent); }
+[data-testid="stChatInput"] textarea {
+  font-size: 0.94rem !important;
+  color: var(--ink) !important;
+  background: transparent !important;
+  -webkit-text-fill-color: var(--ink);
+}
+
+[data-testid="stChatInput"] button { color: var(--accent) !important; }
+[data-testid="stChatInputSubmitButton"] svg { fill: var(--accent); }
+[data-testid="stChatInput"] textarea::placeholder { color: var(--ink-3); }
+
+.stButton > button {
+  width: 100%;
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 0.845rem;
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--ink-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 0.62rem 0.8rem;
+  transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+}
+
+.stButton > button:hover {
+  border-color: var(--accent);
+  background: var(--accent-wash);
+  color: var(--ink);
+}
+
+.stButton > button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+[data-testid="stSidebar"] {
+  background: var(--wash);
+  border-right: 1px solid var(--line);
+}
+
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] { color: var(--ink); }
+[data-testid="stSidebar"] .stButton > button { font-size: 0.82rem; }
+
+/* Without a pointer there is no hover; tapping the number jumps to the
+   reference, which carries the same passage in full. */
+@media (hover: none) {
+  .cite-pop { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+@media (max-width: 640px) {
+  [data-testid="stAppViewContainer"] .block-container { padding: 1.6rem 1rem 7rem; }
+  .hero { padding-top: 1.75rem; }
+}

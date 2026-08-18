@@ -1,0 +1,66 @@
+{
+  "_comment": "Document metadata for the files in the knowledge base, keyed by blob file name. Anything not listed here still renders: the title is inferred from the document's own page footers, and the reference falls back to the file name. Add an entry to give a document a proper citation and a link a reader can open.",
+
+  "9789240033986-eng.pdf": {
+    "title": "Guideline for the pharmacological treatment of hypertension in adults",
+    "publisher": "World Health Organization",
+    "year": "2021",
+    "url": "https://www.who.int/publications/i/item/9789240033986"
+  },
+  "9789240033993-eng.pdf": {
+    "title": "Web annex A: summary of evidence",
+    "collection": "Guideline for the pharmacological treatment of hypertension in adults",
+    "publisher": "World Health Organization",
+    "year": "2021",
+    "url": "https://www.who.int/publications/i/item/9789240033993"
+  },
+  "9789240034006-eng.pdf": {
+    "title": "Web annex B: evidence-to-decision frameworks",
+    "collection": "Guideline for the pharmacological treatment of hypertension in adults",
+    "publisher": "World Health Organization",
+    "year": "2021",
+    "url": "https://www.who.int/publications/i/item/9789240034006"
+  },
+  "9789240001367-eng.pdf": {
+    "title": "Risk-based CVD management",
+    "collection": "HEARTS: technical package for cardiovascular disease management in primary health care",
+    "publisher": "World Health Organization",
+    "year": "2020",
+    "url": "https://www.who.int/publications/i/item/9789240001367"
+  },
+  "WHO-NMH-NVI-18.1-eng.pdf": {
+    "title": "Healthy-lifestyle counselling",
+    "collection": "HEARTS: technical package for cardiovascular disease management in primary health care",
+    "publisher": "World Health Organization",
+    "year": "2018",
+    "url": "https://www.who.int/publications/i/item/WHO-NMH-NVI-18-1"
+  },
+  "WHO-NMH-NVI-18.2-eng.pdf": {
+    "title": "Evidence-based treatment protocols",
+    "collection": "HEARTS: technical package for cardiovascular disease management in primary health care",
+    "publisher": "World Health Organization",
+    "year": "2018",
+    "url": "https://www.who.int/publications/i/item/WHO-NMH-NVI-18-2"
+  },
+  "WHO-NMH-NVI-18.3-eng.pdf": {
+    "title": "Access to essential medicines and technology",
+    "collection": "HEARTS: technical package for cardiovascular disease management in primary health care",
+    "publisher": "World Health Organization",
+    "year": "2018",
+    "url": "https://www.who.int/publications/i/item/WHO-NMH-NVI-18-3"
+  },
+  "WHO-NMH-NVI-18.4-eng.pdf": {
+    "title": "Team-based care",
+    "collection": "HEARTS: technical package for cardiovascular disease management in primary health care",
+    "publisher": "World Health Organization",
+    "year": "2018",
+    "url": "https://www.who.int/publications/i/item/WHO-NMH-NVI-18-4"
+  },
+  "WHO-NMH-NVI-18.5-eng.pdf": {
+    "title": "Systems for monitoring",
+    "collection": "HEARTS: technical package for cardiovascular disease management in primary health care",
+    "publisher": "World Health Organization",
+    "year": "2018",
+    "url": "https://www.who.int/publications/i/item/WHO-NMH-NVI-18-5"
+  }
+}

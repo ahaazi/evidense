@@ -1,0 +1,5 @@
+streamlit>=1.36
+python-dotenv>=1.0
+azure-identity>=1.17
+langchain-core>=0.3
+langchain-azure-ai>=0.1
